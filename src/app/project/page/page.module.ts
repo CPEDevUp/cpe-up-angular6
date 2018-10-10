@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
-
-const routes: Routes = [
-  { path: 'student', loadChildren: './contents/menbers/student/student.module#StudentModule' },
-  { path: 'professor', loadChildren: './contents/menbers/professor/professor.module#ProfessorModule' },
-];
+import { PageRoutingModule } from './page-routing.module';
+import { PageComponent } from './page.component';
+import { MenuComponent } from './menu/menu.component';
+import { CommonModule } from '@angular/common';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes)
-  ],
-  exports: [RouterModule],
-  declarations: [BreadcrumbComponent]
+    imports: [
+        CommonModule,
+        PageRoutingModule
+    ],
+    declarations: [
+        BreadcrumbComponent,
+        PageComponent,
+        MenuComponent,
+        HomeComponent
+    ]
 })
 export class PageModule { }

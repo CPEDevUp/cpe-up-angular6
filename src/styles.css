@@ -1,19 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-@import "assets/font/fonts.css";
 
-body{
+@import "assets/font/fonts.css";
+body {
     background-color: #DDDDDD
 }
+
 .container-fluid {
     min-height: 100%;
     margin: 0 1em;
     /* padding-top: calc(6em + 10px); */
-    padding-bottom: calc(60px + 10px);
+    /* padding-bottom: calc(60px + 10px); */
     box-sizing: border-box;
-    padding-top: 70px;
-    
-  }
+    padding-top: calc(75px + 1em);
+}
 
-.full-width{
-    width:100%
+.full-width {
+    width: 100%
 }
