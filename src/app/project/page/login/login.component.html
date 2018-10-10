@@ -1,26 +1,26 @@
-<div class="ui middle aligned center aligned grid">
-  <div class=" four wide column">
+<div class="ui middle aligned center aligned grid login-page">
+  <div class="four wide column login-form">
     <h2 class="ui teal image header">
       <img src="assets/img/logo.png" class="image">
       <div class="content">
         <br>วิศวกรรมคอมพิวเตอร์
       </div>
     </h2>
-    <form class="ui large form">
-      <div class="ui stacked segment">
-        <div class="field">
+    <form class="ui large form" [formGroup]="form" (submit)="onSubmit()">
+      <div class="ui padded segment">
+        <div class="field" [ngClass]="{'error': submitted && form.controls.username.invalid}">
           <div class="ui left icon input">
             <i class="user icon"></i>
-            <input type="text" name="email" placeholder="E-mail address">
+            <input type="text" name="username" formControlName="username" autocomplete="off" placeholder="รหัสอาจารย์/รหัสนิสิต">
           </div>
         </div>
-        <div class="field">
+        <div class="field" [ngClass]="{'error': submitted && form.controls.password.invalid}">
           <div class="ui left icon input">
             <i class="lock icon"></i>
-            <input type="password" name="password" placeholder="Password">
+            <input type="password" name="password" formControlName="password" autocomplete="off" placeholder="รหัสผ่าน">
           </div>
         </div>
-        <div class="ui fluid large teal submit button">เข้าสู่ระบบ</div>
+        <button type="submit" class="ui fluid large teal submit button">เข้าสู่ระบบ</button>
       </div>
 
       <div class="ui error message"></div>
@@ -28,7 +28,8 @@
     </form>
 
     <div class="ui message">
-      New to us? <a href="#">Sign Up</a>
+      ลืมรหัสผ่าน? <a href="#">ยื่นคำร้องขอรหัสใหม่</a>
     </div>
+
   </div>
 </div>
