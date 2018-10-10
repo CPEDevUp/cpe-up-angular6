@@ -1,0 +1,14 @@
+
+@font-face {
+    font-family: 'prompt';
+    src: url('font/prompt/font/Prompt-Regular.ttf'),
+    		url('font/prompt/font/Prompt-Medium.ttf'),
+    	 	url('font/prompt/font/Prompt-SemiBold.ttf');  
+}
+
+html{
+	font-family:"prompt" !important;
+}
+:not(i) {
+	font-family:"prompt" !important;
+}

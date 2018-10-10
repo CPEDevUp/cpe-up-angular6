@@ -1,0 +1,28 @@
+<div class="ui grid">
+  <div class="sixteen wide column {{ class }} bread">
+    <div class="ui segment shadow">
+
+      <div class="ui breadcrumb">
+        <a class="section" routerLink="/home" href="javascript:void(0)">หน้าหลัก</a>
+        <i class="right chevron icon divider"></i>
+      </div>
+
+      <div class="ui breadcrumb" *ngFor="let item of route;let i = index">
+
+        <!-- Linked and Can Route -->
+        <a class="section" *ngIf="item.route != '#'" routerLink="/{{item.route}}" href="javascript:void(0)">{{item.label}}</a>
+        <i class="right chevron icon divider" *ngIf="item.route != '#' && i != route.length-1"></i>
+
+        <!-- Active -->
+        <div class="active section" *ngIf="item.route == '#' && i == route.length-1">{{item.label}}</div>
+
+        <!-- No Link and No Active -->
+        <div class="active section" *ngIf="item.route == '#' && i != route.length-1">{{item.label}}</div>
+        <i class="right chevron icon divider" *ngIf="item.route == '#' && i != route.length-1"></i>
+
+      </div>
+
+      <button *ngIf="class === 'example'" type="button" class="ui mini right floated button example-btn" (click)="copyBreadcrumb($event)">copy</button>
+    </div>
+  </div>
+</div>
