@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+declare var $ :any;
 @Component({
   selector: 'app-st1000',
   templateUrl: './st1000.component.html',
@@ -13,4 +13,7 @@ export class St1000Component implements OnInit {
   ngOnInit() {
   }
 
+  sideBar(){
+    $('.ui.sidebar').sidebar('toggle');
+  }
 }
