@@ -1,279 +1,40 @@
-<div class="ui doubling grid">
-  <div class="column">
-    <button type="button" class="ui teal button" (click)="sideBar()"><i class="align justify icon"></i></button>
+<div class="ui sixteen wide grid pushable pushed">
+  <div class="ui left sidebar teal inverted vertical menu">
+    <a class="item">ชั้นปีที่ 1</a>
+    <a class="item">ชั้นปีที่ 2</a>
+    <a class="item">ชั้นปีที่ 3</a>
+    <a class="item">ชั้นปีที่ 4</a>
   </div>
-</div>
-
-<div class="ui sidebar teal inverted vertical menu">
-  <a class="item">ชั้นปีที่ 1</a>
-  <a class="item">ชั้นปีที่ 2</a>
-  <a class="item">ชั้นปีที่ 3</a>
-  <a class="item">ชั้นปีที่ 4</a>
-</div>
-<div class="pusher">
-  <div class="ui doubling five column grid">
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
-          </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
-        </div>
-      </div>
+  <div class="ui sixteen wide pusher column grid pushed">
+    <div class="sixteen wide column">
+      <button type="button" class="ui teal icon button" (click)="sideBar()"><i class="align justify icon"></i></button>
     </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
+    <div class="row items">
+      <div class="ui doubling five column grid">
+        <div class="column" *ngFor="let item of students | async">
+          <div class="ui card">
+            <div class="image">
+              <img src="/assets/img/user.png">
+            </div>
+            <div class="content">
+              <a class="header">
+                <b>{{ item.name }}</b>
+              </a>
+              <div class="meta">
+                <b>รหัส: {{ item.studentId }}</b>
+              </div>
+              <div class="description">
+                ตำแหน่ง: <b>{{ item.position }}</b><br>
+                {{ item.description }}
+              </div>
+            </div>
+            <div class="extra content">
+              <a [routerLink]="['/members/student/st1000/'+item.studentId]">
+                <i class="user icon"></i>
+                ดูข้อมูล
+              </a>
+            </div>
           </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
-          </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
-          </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
-          </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
-          </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
-          </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
-          </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
-          </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
-          </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
-          </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/assets/img/user.png">
-        </div>
-        <div class="content">
-          <a class="header">Position</a>
-          <div class="meta">
-            <span class="date">Name</span>
-          </div>
-          <div class="description">
-            Description
-          </div>
-        </div>
-        <div class="extra content">
-          <a>
-            <i class="user icon"></i>
-            Web
-          </a>
         </div>
       </div>
     </div>
