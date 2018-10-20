@@ -1,4 +1,4 @@
-<div class="ui sixteen wide grid pushable pushed">
+<div class="ui sixteen wide grid pushable">
   <div class="ui left sidebar teal inverted vertical menu">
     <a class="item">ชั้นปีที่ 1</a>
     <a class="item">ชั้นปีที่ 2</a>
@@ -11,28 +11,56 @@
     </div>
     <div class="row items">
       <div class="ui doubling five column grid">
-        <div class="column" *ngFor="let item of students | async">
+        <div class="column" *ngFor="let item of students">
           <div class="ui card">
             <div class="image">
-              <img src="/assets/img/user.png">
+              <div class="ui placeholder" *ngIf="loading">
+                <div class="square image"></div>
+              </div>
+              <img src="/assets/img/user.png" *ngIf="!loading">
             </div>
             <div class="content">
-              <a class="header">
+              <!-- loading -->
+              <div class="ui placeholder" *ngIf="loading">
+                <a class="header">
+                  <div class="line"></div>
+                </a>
+                <div class="meta">
+                  <div class="line"></div>
+                </div>
+                <div class="description">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                </div>
+              </div>
+              <!-- loading -->
+
+              <!-- loaded -->
+              <a [routerLink]="['/members/student/details/'+item.id]" class="header" *ngIf="!loading">
                 <b>{{ item.name }}</b>
               </a>
-              <div class="meta">
+              <div class="meta" *ngIf="!loading">
                 <b>รหัส: {{ item.studentId }}</b>
               </div>
-              <div class="description">
+              <div class="description" *ngIf="!loading">
                 ตำแหน่ง: <b>{{ item.position }}</b><br>
                 {{ item.description }}
               </div>
+              <!-- loaded -->
             </div>
             <div class="extra content">
-              <a [routerLink]="['/members/student/st1000/'+item.studentId]">
+              <!-- loading -->
+              <div class="ui placeholder" *ngIf="loading">
+                <div class="short line"></div>
+              </div>
+              <!-- loading -->
+
+              <!-- loaded -->
+              <a [routerLink]="['/members/student/details/'+item.id]" *ngIf="!loading">
                 <i class="user icon"></i>
                 ดูข้อมูล
               </a>
+              <!-- loaded -->
             </div>
           </div>
         </div>

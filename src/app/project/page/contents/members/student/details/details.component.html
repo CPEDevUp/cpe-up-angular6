@@ -1,0 +1,41 @@
+<div class="ui grid">
+    <div class="four wide left column" style="padding: 1em 0 1em 1em">
+        <div class="ui top attached header">
+            <div class="card">
+                <div class="ui placeholder" [hidden]="!loading">
+                    <div class="square image"></div>
+                </div>
+                <div class="image" [hidden]="loading">
+                    <img src="/assets/img/user.png" width="100%">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="twelve wide column">
+        <h1 class="ui top attached header">
+            <div class="ui placeholder" [hidden]="!loading">
+                <div class="short line"></div>
+            </div>
+            <div [hidden]="loading" style="width: 100%">
+                ข้อมูลนิสิต
+                <button (click)="back()" class="ui right floated button">กลับ</button>
+            </div>
+        </h1>
+        <div class="ui attached segment" style="font-size: 20px" [hidden]="!loading">
+            <div class="ui fluid placeholder">
+                <div class="medium line"></div>
+                <div class="medium line"></div>
+            </div>
+        </div>
+        <div class="ui attached segment" style="font-size: 20px" [hidden]="loading">
+            <p>รหัสนิสิต: <b>{{ student.studentId }}</b></p>
+            <p>ชื่อ-นามสกุล: <b>{{ student.name }}</b></p>
+        </div>
+        <h3 class="ui bottom attached header">
+            <div class="ui placeholder" [hidden]="!loading">
+                <div class="very short line"></div>
+            </div>
+            <div [hidden]="loading">Actions</div>
+        </h3>
+    </div>
+</div>

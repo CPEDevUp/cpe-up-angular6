@@ -6,10 +6,19 @@
     padding-bottom: 0 !important;
 }
 
+.pushed.pusher {
+    margin: 0;
+}
+
 .sidebar {
     padding: 0 !important;
 }
 
 .row.items {
     padding: 0 !important;
+}
+
+.doubling {
+    padding: 0 0 0 1em !important;
+    width: calc(100% + 1em) !important;
 }

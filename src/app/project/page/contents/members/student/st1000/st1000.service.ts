@@ -1,26 +1,19 @@
-import { Injectable } from '@angular/core';
-import { Student } from 'models/*';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core'
+import { Student } from 'models/*'
+import { Observable } from 'rxjs'
+
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 @Injectable()
 export class St1000Service {
 
-    private students: Student[];
+    private studentsUrl = 'api/students'  // URL to web api
 
-    constructor() {
-        this.students = [
-            // { studentId: "57024255", name: "นาย อาทิตย์ แก่นใจ", position: "นิสิต", description: "-" },
-        ];
-        for (let i = 0; i < 100; i++) {
-            this.students.push(
-                { studentId: "570XXXXX", name: "XXXXXX XXXXX", position: "นิสิต", description: "-" });
-        }
+    constructor(private http: HttpClient) { }
+
+    /** GET students from the server */
+    getStudents(): Observable<Student[]> {
+        return this.http.get<Student[]>(this.studentsUrl)
     }
 
-    public getStudents(): Observable<Student[]> {
-        return new Observable(obs => {
-            obs.next(this.students);
-            obs.complete();
-        });
-    }
 }

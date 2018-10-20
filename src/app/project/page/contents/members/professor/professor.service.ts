@@ -1,26 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Professor } from 'models/*';
 import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ProfessorService {
 
-    private professors: Professor[];
+    private professorsUrl = 'api/professors' // URL to web api
 
-    constructor() {
-        this.professors = [
-            // { professorId: "12XXXXX", position: "อาจารย์", name: "ดร.XXXXX XXXXXX", subjects: "C Programming, Data Structure", description: "-" }
-        ];
-        for (let i = 0; i < 10; i++) {
-            this.professors.push(
-                { professorId: "12XXXXX", position: "อาจารย์", name: "ดร.XXXXX XXXXXX", subjects: "C Programming, Data Structure", description: "-" });
-        }
+    constructor(private http: HttpClient) { }
+
+    /** GET professors from the server */
+    getProfessors(): Observable<Professor[]> {
+        return this.http.get<Professor[]>(this.professorsUrl)
     }
 
-    public getProfessors(): Observable<Professor[]> {
-        return new Observable(obs => {
-            obs.next(this.professors);
-            obs.complete();
-        });
-    }
 }

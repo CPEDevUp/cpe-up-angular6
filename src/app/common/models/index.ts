@@ -1,2 +1,2 @@
-export { Student } from './student.model';
+export { Student, initialStudent } from './student.model';
 export { Professor } from './professor.model';
